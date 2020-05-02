@@ -1,13 +1,13 @@
 #/bin/sh
 
 echo "*********** Copy Test Env To Env *********** "
-cp .env_test .env
+cp .env_dev .env
 cat .env
 echo "*********** Show Current Branch *********** "
 # git branch
 
 echo "*********** Show EB List *********** "
-eb use Test-VictoryApi-env
+eb use dev-jangbogo-api
 eb list
 
 echo "****************************** *********** "
