@@ -46,7 +46,7 @@ const options = {
   uploadDir: os.tmpdir()
 };
 app.use(function(req, res, next) {
-  console.log(req.rawHeaders);
+  // console.log(req.rawHeaders);
   console.log(req.headers);
   // console.log(req.rawHeaders.api_key);
   // console.log(req);
@@ -65,7 +65,9 @@ app.use(function(req, res, next) {
 
 app.use(formData.parse(options));
 
-app.get("/", (req, res) => res.send("Welcome to JangboGo API"));
+app.get("/", (req, res) =>
+  res.send(`Welcome to [${process.env.LOCAL_ENV}]JangboGo API`)
+);
 app.use("/member", require("./routes/api/member/controller"));
 app.use("/cart", require("./routes/api/cart/controller"));
 app.use("/auth", require("./routes/api/auth/auth"));
